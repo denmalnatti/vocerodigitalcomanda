@@ -1,0 +1,99 @@
+{
+  "proyecto": "COMANDA. — Identidad Sonora",
+  "version": "1.0",
+  "fecha": "Junio 2026",
+  "nota_metodologica": "Los prompts de Suno usan lenguaje natural evocador (estilo, emoción, referencia). Los prompts de Udio usan lenguaje técnico/estructurado (BPM, key, instrumentación, dinámica). Esta diferencia es intencional y responde a la arquitectura de cada plataforma.",
+
+  "piezas": [
+
+    {
+      "id": "SUNO-01",
+      "plataforma": "Suno v4",
+      "tipo": "Jingle",
+      "duracion_objetivo": "30 segundos",
+      "titulo_sugerido": "COMANDA.",
+      "modo_uso": "Identidad sonora de marca / Bumper audiovisual",
+
+      "prompt_principal": "Sparse folk-noir, acoustic guitar with raw pick noise, warm upright bass, sparse brushed snare. Intimate recording, room tone audible. One singer, low voice, Spanish lyrics. Melancholic but not sad. Like a page turning in a very old book. Slow tempo, 80bpm. No chorus, no hook, just a statement. The song ends before you want it to.",
+
+      "letra": "Hay una mesa / que no está en ningún mapa / una sola noche / un solo criterio / lo que se sirve / lo que se escucha / lo que queda / COMANDA.",
+
+      "parametros_adicionales": {
+        "instrumentos_clave": ["acoustic guitar", "upright bass", "brushed drums"],
+        "instrumentos_excluir": ["synthesizer", "electric guitar distorted", "drums electronic", "strings orchestral"],
+        "bpm": 80,
+        "key": "D minor",
+        "mood_tags": ["intimate", "editorial", "noir", "literary"],
+        "vocal_style": "Spoken-sung, not melodic, almost a recitation",
+        "production_style": "Lo-fi by design, not by accident. Analog warmth."
+      },
+
+      "prompts_alternativos": [
+        {
+          "variante": "A — Más instrumental",
+          "prompt": "Slow instrumental folk, 80bpm, acoustic guitar fingerpicking, minimal upright bass, no drums. A single note on piano enters at the end and holds. Recording feels like a wine cellar: cool, contained, stone walls. Fade out before expected. D minor."
+        },
+        {
+          "variante": "B — Más oscuro",
+          "prompt": "Dark folk, sparse, literary. Male voice low register, Spanish lyrics, spoken more than sung. Acoustic guitar, cello one note sustained, room noise. 78bpm. Feels like the last song on a debut album that nobody expected. Ends with silence."
+        },
+        {
+          "variante": "C — Femenino",
+          "prompt": "Intimate female voice, Spanish, slow folk-noir, 82bpm, acoustic guitar with audible fret buzz, upright bass. Sounds like it was recorded in a kitchen at 2am. No reverb, dry and close. The voice does not try to be beautiful — it tries to be true."
+        }
+      ],
+
+      "logica_de_seleccion": "Elegir la variante que más silencios internos conserve. Si el resultado suena 'producido' o 'limpio', no es Comanda. La imperfección audible es parte de la identidad."
+    },
+
+    {
+      "id": "UDIO-01",
+      "plataforma": "Udio 1.5",
+      "tipo": "Paisaje Sonoro Instrumental",
+      "duracion_objetivo": "60 segundos",
+      "titulo_sugerido": "Sala de Espera / Waiting Room",
+      "modo_uso": "Fondo de video / Reels / Stories / Ambiente en evento",
+
+      "prompt_principal": "[Genre: Neo-folk instrumental, chamber-folk] [BPM: 76] [Key: E minor] [Time Signature: 4/4] [Instruments: acoustic guitar fingerpicking, upright bass arco, nylon string guitar harmony, sparse brushed snare, room ambience] [Production: Dry close-mic recording, minimal reverb, analog tape saturation light, no compression artifacts] [Dynamics: pp to mp, no peaks above -6dBFS] [Structure: Intro 8 bars sparse guitar solo → main section 16 bars full ensemble → breakdown 8 bars guitar + bass only → outro 8 bars full with held final note] [Mood: Editorial, anticipatory, melancholic without being sad] [Reference feel: Nils Frahm acoustic / Bon Iver For Emma era / Chet Baker instrumental] [Avoid: Cinematic swells, Hollywood strings, EDM elements, excessive reverb, synthesizers]",
+
+      "stems_requeridos": [
+        "stem_guitar_main",
+        "stem_bass",
+        "stem_guitar_harmony",
+        "stem_percussion",
+        "stem_ambience_room"
+      ],
+
+      "parametros_tecnicos": {
+        "sample_rate": "48kHz",
+        "bit_depth": "24 bits",
+        "formato_export": "WAV",
+        "stems_formato": "WAV individuales, mismo largo que master",
+        "headroom": "-6dBFS mínimo",
+        "normalizacion": "No normalizar el master — conservar dinámica original"
+      },
+
+      "prompts_alternativos": [
+        {
+          "variante": "A — Con piano",
+          "prompt": "[Genre: Contemporary classical-folk] [BPM: 72] [Key: C minor] [Instruments: prepared piano sparse, acoustic guitar, upright bass pizzicato, light brushed percussion] [Production: Studio recording, intimate, close-mic, minimal reverb] [Structure: Evolving motif, same 4 bars repeated with variation x4, builds minimally, resolves without resolution] [Mood: Contemplative, editorial, textured] [Reference: Nils Frahm Spaces era] [Avoid: Cinematic drama, EDM, synthesizers, strings ensemble]"
+        },
+        {
+          "variante": "B — Más orgánico",
+          "prompt": "[Genre: Folk ambient] [BPM: 80] [Key: G minor] [Instruments: acoustic guitar, found percussion (wood block, finger snap), upright bass, wine glass harmonic (single note)] [Production: Room recording, ambience present, feels like a space with history] [Dynamics: Very low, intimate] [Mood: The feeling of an empty dining room before service — everything ready, nobody there yet] [Avoid: Melodic hooks, EDM, anything that sounds like restaurant ambience playlist]"
+        }
+      ],
+
+      "logica_de_seleccion": "Priorizar la versión que tenga mayor variación de dinámica interna. Un paisaje sonoro que no cambia en 60 segundos no es apto para video. Debe tener al menos un momento de silencio o reducción drástica entre segundo 25 y 40."
+    }
+  ],
+
+  "criterios_globales_de_rechazo": [
+    "Resultado suena a playlist de restaurante genérico",
+    "Presencia de sintetizadores no solicitados",
+    "BPM por encima de 95",
+    "Dinámica plana (no hay variación de volumen interna)",
+    "Voz femenina hiper-producida (auto-tune audible)",
+    "Remate musical ascendente (Comanda baja o se detiene, nunca sube)"
+  ]
+}
